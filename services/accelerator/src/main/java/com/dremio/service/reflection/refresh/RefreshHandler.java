@@ -897,14 +897,7 @@ public class RefreshHandler implements SqlToPlanHandler {
           noDefaultReflectionDecision.setDisableDefaultReflection(handler.eventReceived);
 
       if (noDefaultReflectionDecision.getAccelerationSettings().getMethod()
-              == RefreshMethod.INCREMENTAL
-          // && sqlHandlerConfig
-          //     .getContext()
-          //     .getOptions()
-          //     .getOption(
-          //         "reflections.planning.exclude.file_based_incremental.iceberg.accelerations")
-          //     .getBoolVal()
-              ) {
+              == RefreshMethod.INCREMENTAL){
         sqlHandlerConfig
             .getConverter()
             .getSession()
