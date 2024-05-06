@@ -897,7 +897,7 @@ public class RefreshHandler implements SqlToPlanHandler {
           noDefaultReflectionDecision.setDisableDefaultReflection(handler.eventReceived);
 
       if (noDefaultReflectionDecision.getAccelerationSettings().getMethod()
-              == RefreshMethod.INCREMENTAL){
+          == RefreshMethod.INCREMENTAL) {
         sqlHandlerConfig
             .getConverter()
             .getSession()
