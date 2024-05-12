@@ -25,6 +25,10 @@ import java.util.concurrent.TimeUnit;
 @Options
 public interface ReflectionOptions {
 
+  BooleanValidator EXCLUDE_INCREMENTAL_ICEBERG =
+      new BooleanValidator(
+          "reflections.planning.exclude.file_based_incremental.iceberg.accelerations", true);
+
   // how often should the reflection manager wakeup automatically without any external trigger
   PositiveLongValidator REFLECTION_MANAGER_REFRESH_DELAY_MILLIS =
       new PositiveLongValidator(
