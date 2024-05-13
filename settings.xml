@@ -1,0 +1,17 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>dremio</id>
+            <repositories>
+                <repository>
+                    <id>dremio-free</id>
+                    <name>dremio-free</name>
+                    <url>https://maven.dremio.com/free/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>dremio</activeProfile>
+    </activeProfiles>
+</settings>

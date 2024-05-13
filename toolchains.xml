@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolchains>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>17</version>
+      <vendor>sun</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/usr/lib/jvm/temurin-17-jdk-amd64</jdkHome>
+    </configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>11</version>
+      <vendor>sun</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/usr/lib/jvm/temurin-11-jdk-amd64</jdkHome>
+    </configuration>
+  </toolchain>
+</toolchains>
