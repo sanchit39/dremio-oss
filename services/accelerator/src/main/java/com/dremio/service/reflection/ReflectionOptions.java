@@ -29,6 +29,10 @@ import com.dremio.options.TypeValidators.StringValidator;
 @Options
 public interface ReflectionOptions {
 
+  BooleanValidator EXCLUDE_INCREMENTAL_ICEBERG =
+      new BooleanValidator(
+          "reflections.planning.exclude.file_based_incremental.iceberg.accelerations", true);
+
   // how often should the reflection manager wakeup automatically without any external trigger
   PositiveLongValidator REFLECTION_MANAGER_REFRESH_DELAY_MILLIS = new PositiveLongValidator("reflection.manager.refresh.delay_millis", Long.MAX_VALUE, TimeUnit.SECONDS.toMillis(10));
   // how long deleted reflection goals/materializations are kept in the store/on disk before they are effectively deleted
