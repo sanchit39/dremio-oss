@@ -12,9 +12,9 @@ COPY ./toolchains.xml /root/.m2/toolchains.xml
 COPY ./settings.xml /root/.m2/settings.xml
 RUN update-alternatives --set java /usr/lib/jvm/temurin-11-jdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/temurin-11-jdk-amd64/bin/javac
 RUN cd /opt && git clone https://github.com/sanchit39/dremio-oss.git dremio
-RUN git checkout 24.3
+RUN cd /opt/dremio && git checkout 24.3
 WORKDIR /opt/dremio
-RUN ./mvnw install -DskipTests -Ddremio.oss-only=true
+RUN ./mvnw install -DskipTests -Ddremio.oss-only=true -Dlicense.skip=true
  
 RUN sleep 60
  
