@@ -1,5 +1,5 @@
 FROM prevalentai/debian:bullseye-11.8 as builder
-RUN apt install -y wget apt-transport-https gpg unzip
+RUN apt install -y wget apt-transport-https gpg unzip procps
 RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
 RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F'=' '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
 RUN apt update
@@ -22,7 +22,7 @@ FROM prevalentai/debian:bullseye-11.8
  
 # Install Java and other required dependencies
 RUN apt-get update && \
-    apt-get install -y wget apt-transport-https gpg unzip git vim && \
+    apt-get install -y wget apt-transport-https gpg unzip git vim procps && \
     wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null && \
     echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F'=' '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list && \
     apt-get update && \
@@ -45,6 +45,7 @@ RUN mkdir -p /var/lib/dremio \
 && chown -R dremio:dremio /var/lib/dremio
  
 COPY --from=builder /opt/dremio/distribution/server/target/dremio-oss-25.0.0-*/dremio-oss-25.0.0-* /opt/dremio/
+COPY ./dremio-ce-services-cachemanager-25.0.0-202404051521110861-ed9515a8.jar /opt/dremio/jars/
  
 EXPOSE 9047/tcp
 EXPOSE 31010/tcp
